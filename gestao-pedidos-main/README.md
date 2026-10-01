@@ -1,13 +1,13 @@
-# Gestão de Pedidos — AdonisJS + Angular
+Gestão de Pedidos — AdonisJS + Angular
 
 Aplicação para cadastro de clientes e produtos e para criação e acompanhamento de pedidos.
 
-- **Backend:** AdonisJS (Lucid ORM, VineJS) com SQLite
-- **Frontend:** Angular (standalone components, signals, reactive forms)
+- Backend: AdonisJS (Lucid ORM, VineJS) com SQLite
+- Frontend: Angular 
 
-## Como rodar
+ Como rodar
 
-### Backend (porta 3333)
+ Backend (porta 3333)
 
 ```bash
 cd backend
@@ -24,7 +24,7 @@ Testes automatizados (usam um banco separado, `tmp/db.test.sqlite3`):
 node ace test
 ```
 
-### Frontend (porta 4200)
+Frontend (porta 4200)
 
 ```bash
 cd frontend
@@ -34,7 +34,7 @@ npm start
 
 Testes: `npm test`. A URL da API fica em `frontend/src/app/core/config.ts`.
 
-## API
+ API
 
 | Método | Rota | Descrição |
 | --- | --- | --- |
@@ -49,9 +49,9 @@ Testes: `npm test`. A URL da API fica em `frontend/src/app/core/config.ts`.
 | POST | `/orders` | Cria pedido (`customerId`, `items: [{ productId, quantity }]`) |
 | PATCH | `/orders/:id/status` | Altera o status (`status`) |
 
-Erros seguem sempre o formato `{ "message": "...", "errors"?: [...] }` — `422` para validação e regra de negócio, `404` para registro inexistente.
+Erros seguem sempre o formato `{ "message": "...", "errors"?: [...] }` — `422` para validação e regra de negócio, `404` para registro inexistente(problema).
 
-## Onde cada regra de negócio está
+ Onde cada regra de negócio está
 
 | Regra | Onde |
 | --- | --- |
@@ -60,9 +60,9 @@ Erros seguem sempre o formato `{ "message": "...", "errors"?: [...] }` — `422`
 | Total calculado no backend, preço do produto gravado no item | `app/services/order_service.ts` (dentro de uma transação) |
 | Fluxo de status e cancelamento irreversível | `app/enums/order_status.ts` + `OrderService.changeStatus` |
 
-## Decisões
+ Decisões
 
-- **Preço congelado no item:** `order_items` guarda `unit_price`, `total_price` e `product_name` no momento da compra, então reajustar um produto não altera pedidos antigos.
-- **Status:** `PENDING → IN_PREPARATION → READY → FINISHED`. Pode cancelar até finalizar; `FINISHED` e `CANCELED` são estados finais.
-- **Camadas:** controllers finos → validators (entrada) → service (regras) → models Lucid (dados).
-- **Erros:** um handler global (`app/exceptions/handler.ts`) padroniza as respostas; no Angular, um interceptor exibe a mensagem em um só lugar.
+- Preço congelado no item: `order_items` guarda `unit_price`, `total_price` e `product_name` no momento da compra, então reajustar um produto não altera pedidos antigos.
+- Status: `PENDING → IN_PREPARATION → READY → FINISHED`. Pode cancelar até finalizar; `FINISHED` e `CANCELED` são estados finais.
+- Camadas: controllers finos → validators (entrada) → service (regras) → models Lucid (dados).
+- Erros: um handler global (`app/exceptions/handler.ts`) padroniza as respostas; no Angular, um interceptor exibe a mensagem em um só lugar.
