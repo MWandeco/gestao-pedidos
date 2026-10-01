@@ -1,0 +1,49 @@
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: #f5f6f8;
+  color: #222;
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  font-size: 14px;
+}
+
+h2 { margin: 0 0 16px; }
+h3 { margin: 0 0 12px; }
+
+.page { max-width: 1000px; margin: 0 auto; padding: 20px; }
+.page-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; }
+.page-header h2 { margin: 0; }
+
+.card { background: #fff; border: 1px solid #ddd; border-radius: 6px; padding: 16px; margin-bottom: 20px; }
+.row { display: flex; gap: 10px; align-items: flex-start; flex-wrap: wrap; }
+.field { display: flex; flex-direction: column; gap: 4px; }
+.field-error { color: #c0392b; font-size: 12px; }
+.muted { color: #777; }
+.right { text-align: right; }
+
+input, select { padding: 8px; border: 1px solid #ccc; border-radius: 4px; font: inherit; }
+input.ng-invalid.ng-touched, select.ng-invalid.ng-touched { border-color: #c0392b; }
+
+.btn { padding: 8px 14px; border: 1px solid #ccc; border-radius: 4px; background: #fff; cursor: pointer; font: inherit; }
+.btn:disabled { opacity: 0.5; cursor: not-allowed; }
+.btn-primary { background: #3498db; border-color: #3498db; color: #fff; }
+.btn-success { background: #27ae60; border-color: #27ae60; color: #fff; }
+.btn-danger { background: #fff; border-color: #c0392b; color: #c0392b; }
+.btn-sm { padding: 4px 10px; font-size: 13px; }
+
+table { width: 100%; border-collapse: collapse; background: #fff; }
+th, td { padding: 10px; border: 1px solid #ddd; text-align: left; vertical-align: middle; }
+th { background: #f2f2f2; }
+td.actions { display: flex; gap: 6px; flex-wrap: wrap; border: 0; border-top: 1px solid #ddd; }
+.empty { text-align: center; color: #777; }
+.items-row td { background: #fafafa; }
+
+.badge { display: inline-block; padding: 2px 8px; border-radius: 10px; font-size: 12px; font-weight: 600; background: #eee; }
+.badge-PENDING { background: #fdebd0; color: #9a6300; }
+.badge-IN_PREPARATION { background: #d6eaf8; color: #1b5e8a; }
+.badge-READY { background: #d5f5e3; color: #1e7a46; }
+.badge-FINISHED { background: #e8e8e8; color: #444; }
+.badge-CANCELED { background: #fadbd8; color: #a93226; }
+.badge-ACTIVE { background: #d5f5e3; color: #1e7a46; }
+.badge-INACTIVE { background: #fadbd8; color: #a93226; }

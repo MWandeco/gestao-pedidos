@@ -1,0 +1,20 @@
+# Dependências
+node_modules/
+.angular/
+
+# Compilação e builds
+build/
+dist/
+.tmp/
+
+# Configurações locais e banco de dados local
+.env
+*.sqlite
+*.db
+
+# Logs e sistema operacional
+*.log
+.DS_Store
+
+# SQLite
+*.sqlite3
